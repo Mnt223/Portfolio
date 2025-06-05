@@ -3,76 +3,1301 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prachi Jain - Data Analyst</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <title>Prachi Jain - Data Analyst Portfolio</title>
+
+  <meta name="description" content="Portfolio of Prachi Jain, a Data Analyst specializing in data visualization, statistical analysis, and predictive modeling. Explore projects, skills, and experience.">
+  <meta name="keywords" content="Prachi Jain, Data Analyst, Portfolio, Data Visualization, SQL, Python, Power BI, Tableau, Machine Learning, Data Science, Business Intelligence">
+  <meta name="author" content="Prachi Jain">
+
+  <meta property="og:title" content="Prachi Jain - Data Analyst Portfolio">
+  <meta property="og:description" content="Discover the work of Prachi Jain, a skilled Data Analyst.">
+  <meta property="og:image" content="https://placehold.co/1200x630/0a192f/00c6d9?text=Prachi+Jain+Portfolio&font=poppins">
+  <meta property="og:url" content="https://your-portfolio-url.com">
+  <meta property="og:type" content="website">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script src="script.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --teal: #00c6d9;
+      --teal-dark: #00a9b8;
+      --teal-transparent-light: rgba(0, 198, 217, 0.1);
+      --navy: #0a192f; /* Default dark mode background */
+      --navy-light: #0f203a;
+      --navy-lighter: #172a45;
+      --white: #ffffff; /* Default dark mode text */
+      --text-light: #ccd6f6;
+      --text-secondary: #a8b2d1;
+      --sidebar-bg: #071222; /* Sidebar background for dark mode */
+      --modal-bg: var(--navy-lighter);
+      --card-bg: var(--navy-lighter);
+      --footer-bg: var(--navy-light);
+      --footer-border: var(--teal-dark);
+      --icon-color: var(--text-secondary);
+      --icon-active-color: var(--teal);
+      --icon-active-bg: var(--teal-transparent-light);
+      --counter-bg: var(--navy-lighter);
+      --circular-skill-track: var(--navy-lighter);
+      --circular-skill-inner-bg: var(--navy);
+
+
+      --sidebar-width-val: 72; /* Numerical value for JS */
+      --sidebar-width-mobile-val: 60; /* Numerical value for JS */
+      --sidebar-width: calc(var(--sidebar-width-val) * 1px);
+      --sidebar-width-mobile: calc(var(--sidebar-width-mobile-val) * 1px);
+
+      --font-main: 'Poppins', sans-serif;
+      --font-alt: 'Inter', sans-serif;
+      --border-radius-main: 10px;
+      --border-radius-small: 6px;
+      --shadow-soft: 0 4px 15px rgba(0,0,0,0.2);
+      --shadow-medium: 0 6px 20px rgba(0,0,0,0.3);
+      --footer-height-val: 75; /* Numerical value for JS */
+      --footer-height-landscape-val: 60; /* Numerical value for JS */
+      --footer-height: calc(var(--footer-height-val) * 1px);
+      --transition-speed: 0.3s;
+    }
+
+    /* Light Mode Variables */
+    body.light-mode {
+      --navy: #f0f4f8;
+      --navy-light: #e3e9ef;
+      --navy-lighter: #ffffff;
+      --white: #1f2937;
+      --text-light: #374151;
+      --text-secondary: #6b7280;
+      --sidebar-bg: #e9eff5;
+      --modal-bg: #ffffff;
+      --card-bg: #ffffff;
+      --footer-bg: #e3e9ef;
+      --footer-border: #cdd3d9;
+      --icon-color: #525f7f;
+      --icon-active-color: var(--teal-dark);
+      --icon-active-bg: rgba(0, 169, 184, 0.15);
+      --counter-bg: #ffffff;
+      --circular-skill-track: #e0e7ee;
+      --circular-skill-inner-bg: #f0f4f8;
+      --shadow-soft: 0 4px 15px rgba(0,0,0,0.08);
+      --shadow-medium: 0 6px 20px rgba(0,0,0,0.12);
+    }
+
+
+    /* Basic Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+        height: 100%;
+        /* overflow-x: hidden; REMOVED from html, kept on body */
+    }
+    body {
+      font-family: var(--font-alt);
+      background: var(--navy);
+      color: var(--text-light);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+      overflow-x: hidden; /* IMPORTANT: Prevent horizontal scroll on body */
+    }
+
+    /* Particle.js Background Styling & Loader */
+    #particles-js-loader {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 200;
+        background-color: var(--navy);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--teal);
+        font-family: var(--font-main);
+        font-size: 1.2rem;
+        opacity: 1;
+        transition: opacity 0.5s ease-out;
+    }
+    body.light-mode #particles-js-loader {
+        background-color: var(--navy);
+        color: var(--teal-dark);
+    }
+    #particles-js-loader.loaded {
+        opacity: 0;
+        pointer-events: none;
+    }
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    /* Main Portfolio Container */
+    .portfolio-container {
+      display: flex;
+      min-height: 100vh;
+      position: relative; /* This is important for children positioning if not fixed */
+      z-index: 1; /* Ensure it's above particles */
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      width: var(--sidebar-width); /* Default width */
+      background: var(--sidebar-bg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 0;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 100;
+      box-shadow: 3px 0 12px rgba(0,0,0,0.15);
+      transition: background-color var(--transition-speed) ease, width var(--transition-speed) ease; /* Added width transition */
+    }
+    .sidebar-nav-item {
+      color: var(--icon-color);
+      margin: 12px 0;
+      padding: 12px;
+      border-radius: var(--border-radius-small);
+      cursor: pointer;
+      transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out, transform 0.2s ease-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sidebar-nav-item svg {
+        width: 24px;
+        height: 24px;
+        stroke-width: 2;
+    }
+    .sidebar-nav-item.active,
+    .sidebar-nav-item:hover {
+      color: var(--icon-active-color);
+      background-color: var(--icon-active-bg);
+      transform: scale(1.05);
+    }
+
+    .theme-toggle-button {
+        background: none;
+        border: none;
+        color: var(--icon-color);
+        cursor: pointer;
+        padding: 10px;
+        margin-top: auto;
+        margin-bottom: 10px;
+        border-radius: var(--border-radius-small);
+        transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out, transform 0.2s ease-out;
+    }
+    .theme-toggle-button svg {
+        width: 22px;
+        height: 22px;
+        stroke-width: 2;
+        display: block;
+    }
+    .theme-toggle-button:hover {
+        color: var(--icon-active-color);
+        background-color: var(--icon-active-bg);
+        transform: scale(1.08);
+    }
+
+    /* Main Content Area */
+    .main-content-area {
+      flex-grow: 1;
+      /* margin-left will be set by JS or by media query for initial load */
+      overflow-y: auto;
+      overflow-x: hidden;
+      height: 100vh;
+      position: relative;
+      /* padding-bottom will be set by JS */
+      transition: margin-left var(--transition-speed) ease; /* Keep transition for margin */
+    }
+
+    /* Profile Section Styling (Home Section's content wrapper) */
+    .profile-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      max-width: 750px;
+      margin: 0 auto;
+      padding: 20px; /* Padding for content within profile section */
+      position: relative;
+      z-index: 2;
+    }
+
+    /* General Section Styling */
+    .section {
+        display: none;
+        padding-bottom: 50px; /* Space for content before footer potentially overlaps */
+        width: 100%;
+        position: relative;
+        z-index: 2;
+        background-color: transparent; /* Default, particles show through */
+    }
+    .section:not(#home), .section#resume, .section#contact {
+        padding: 40px clamp(15px, 4vw, 40px);
+    }
+    .section.active:not(.home-active-centered-fixed) {
+        display: block;
+        animation: fadeInSmooth 0.6s ease-out forwards;
+    }
+
+    /* Special fixed layout for Home section when it's active - controlled by JS for left/width */
+    .section#home.home-active-centered-fixed {
+      display: flex !important; /* Needs to be flex to honor align/justify */
+      flex-direction: column;   /* Stack content vertically */
+      align-items: center;      /* Center .profile-section horizontally */
+      justify-content: center;  /* Center .profile-section vertically */
+      position: fixed;
+      top: 0;
+      /* left and width set by JS */
+      /* height set by JS */
+      padding: 0; /* Padding is on .profile-section now */
+      z-index: 5;
+      overflow-y: auto;
+      overflow-x: hidden;
+      background-color: transparent; /* Particles show through */
+      /* Transitions for left/width removed, handled by JS update */
+      transition: background-color var(--transition-speed) ease;
+    }
+     .section#home.active.home-active-centered-fixed { /* This applies when JS makes it active */
+        animation: fadeInSmooth 0.6s ease-out forwards;
+    }
+
+
+    @keyframes fadeInSmooth {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.7rem, 3.8vw, 2.3rem);
+      font-family: var(--font-main);
+      color: var(--teal);
+      margin-bottom: 35px;
+      font-weight: 600;
+      position: relative;
+      padding-bottom: 12px;
+    }
+    .section-title::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 70px;
+        height: 3.5px;
+        background-color: var(--teal-dark);
+        border-radius: 2px;
+    }
+
+    .hexagon {
+      width: clamp(140px, 20vw, 180px);
+      height: calc(clamp(140px, 20vw, 180px) * 1.1526);
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      background: var(--teal);
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+      box-shadow: 0 0 20px rgba(0,198,217,0.2);
+    }
+    .hexagon:hover {
+        transform: scale(1.07);
+        box-shadow: 0 0 35px rgba(0,198,217,0.4);
+    }
+    .hexagon img {
+      width: 93%;
+      height: 93%;
+      object-fit: cover;
+      clip-path: inherit;
+    }
+    h1 {
+      font-family: var(--font-main);
+      font-size: clamp(1.9rem, 4.8vw, 2.9rem);
+      color: var(--white);
+      margin-bottom: 8px;
+      font-weight: 600;
+      transition: color var(--transition-speed) ease;
+    }
+    .typed-text-container {
+      font-size: clamp(1rem, 2.8vw, 1.35rem);
+      color: var(--teal);
+      font-family: var(--font-main);
+      font-weight: 500;
+      margin-top: 8px;
+      min-height: 2.2em;
+    }
+    .profile-section p.bio {
+        margin-top: 25px;
+        color: var(--text-secondary);
+        max-width: 680px;
+        width: 90%;
+        line-height: 1.75;
+        font-size: clamp(0.88rem, 2.4vw, 1.03rem);
+        margin-bottom: 40px;
+        transition: color var(--transition-speed) ease;
+    }
+
+    #resume .resume-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-top: 30px;
+    }
+    #resume .resume-actions .btn {
+        padding: 12px 30px;
+        font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+        min-width: 170px;
+        max-width: 90%;
+        text-align: center;
+        border-radius: var(--border-radius-small);
+        text-decoration: none;
+        transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease, border-color 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+     #resume .resume-actions .btn svg {
+        margin-right: 10px;
+     }
+    #resume .resume-actions .btn-view {
+        background-color: var(--teal);
+        color: var(--navy);
+    }
+    body.light-mode #resume .resume-actions .btn-view {
+        color: var(--white);
+    }
+    #resume .resume-actions .btn-view:hover {
+        background-color: var(--teal-dark);
+        transform: translateY(-2px);
+    }
+    #resume .resume-actions .btn-download {
+        background-color: transparent;
+        color: var(--teal);
+        border: 2px solid var(--teal);
+    }
+    #resume .resume-actions .btn-download:hover {
+        background-color: var(--teal-transparent-light);
+        color: var(--teal-dark);
+        border-color: var(--teal-dark);
+        transform: translateY(-2px);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: clamp(15px, 2.5vw, 20px);
+    }
+    .info-card {
+      background: var(--card-bg);
+      padding: clamp(18px, 2.5vw, 22px);
+      border-radius: var(--border-radius-main);
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.3s ease, background-color var(--transition-speed) ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+    .info-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: var(--shadow-medium);
+      border-color: var(--teal);
+    }
+    .info-card h3 {
+        font-family: var(--font-main);
+        color: var(--teal);
+        font-size: clamp(1rem, 2.5vw, 1.25rem);
+        margin-bottom: 12px;
+        font-weight: 500;
+    }
+    .info-card p {
+        color: var(--text-secondary);
+        font-size: clamp(0.8rem, 2.2vw, 0.95rem);
+        line-height: 1.7;
+        flex-grow: 1;
+        transition: color var(--transition-speed) ease;
+    }
+     .info-card p:not(:last-child) {
+        margin-bottom: 8px;
+    }
+
+    .skills-container {
+        text-align: center;
+        margin-top: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: clamp(10px, 2vw, 20px);
+    }
+    .circular-skill {
+      width: clamp(85px, 16vw, 115px);
+      height: clamp(85px, 16vw, 115px);
+      background: conic-gradient(var(--teal) calc(var(--p)*1%), var(--circular-skill-track) 0);
+      border-radius: 50%;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: clamp(5px, 1vw, 8px);
+      box-shadow: 0 0 15px rgba(0,198,217,0.1);
+      transition: transform 0.3s ease, background-color var(--transition-speed) ease;
+    }
+    .circular-skill:hover {
+        transform: scale(1.05);
+    }
+    .circular-skill::before {
+        content: '';
+        position: absolute;
+        width: 78%;
+        height: 78%;
+        background: var(--circular-skill-inner-bg);
+        border-radius: 50%;
+        transition: background-color var(--transition-speed) ease;
+    }
+    .circular-skill::after {
+      content: attr(data-label);
+      position: relative;
+      z-index: 1;
+      font-size: clamp(0.6rem, 1.5vw, 0.8rem);
+      font-weight: 500;
+      font-family: var(--font-main);
+      color: var(--text-light);
+      text-align: center;
+      line-height: 1.15;
+      max-width: 88%;
+      padding: 2px;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      transition: color var(--transition-speed) ease;
+    }
+
+    .counters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: clamp(10px, 2vw, 20px) clamp(15px, 3vw, 25px);
+      color: var(--teal);
+      font-family: var(--font-main);
+      text-align: center;
+      width: 100%;
+      max-width: 700px;
+    }
+    .counters > div {
+        background-color: var(--counter-bg);
+        padding: clamp(10px, 2.5vw, 15px) clamp(12px, 3.5vw, 22px);
+        border-radius: var(--border-radius-small);
+        box-shadow: var(--shadow-soft);
+        min-width: 100px;
+        flex: 1 1 100px;
+        max-width: 140px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background-color var(--transition-speed) ease;
+    }
+    .counters > div:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-medium);
+    }
+    .counters .counter {
+        font-size: clamp(1.4rem, 3.8vw, 1.9rem);
+        font-weight: 700;
+        display: block;
+        margin-bottom: 6px;
+    }
+    .counters div > span:not(.counter) {
+        font-size: clamp(0.7rem, 1.9vw, 0.85rem);
+        color: var(--text-secondary);
+        font-weight: 500;
+        transition: color var(--transition-speed) ease;
+    }
+
+    .contact-details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: clamp(20px, 3vw, 25px);
+      max-width: 900px;
+      margin: 20px auto 0;
+    }
+    .contact-card {
+      background: var(--card-bg);
+      padding: clamp(20px, 3vw, 25px);
+      border-radius: var(--border-radius-main);
+      box-shadow: var(--shadow-soft);
+      text-align: center;
+      border: 1px solid transparent;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color var(--transition-speed) ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-medium);
+      border-color: var(--teal);
+    }
+    .contact-card svg {
+      width: clamp(30px, 5vw, 38px);
+      height: clamp(30px, 5vw, 38px);
+      stroke: var(--teal);
+      margin-bottom: 15px;
+    }
+    .contact-card h3 {
+      font-family: var(--font-main);
+      color: var(--teal);
+      font-size: clamp(1.05rem, 2.4vw, 1.25rem);
+      margin-bottom: 10px;
+    }
+    .contact-card p {
+      color: var(--text-secondary);
+      font-size: clamp(0.82rem, 2.1vw, 0.98rem);
+      line-height: 1.6;
+      word-break: break-all;
+      transition: color var(--transition-speed) ease;
+    }
+    .contact-card p a {
+      color: var(--text-light);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      word-break: break-all;
+    }
+    body.light-mode .contact-card p a {
+        color: var(--text-light);
+    }
+    .contact-card p a:hover {
+      color: var(--teal);
+      text-decoration: underline;
+    }
+
+    /* Footer Styling */
+    footer {
+      position: fixed;
+      bottom: 0;
+      /* left and width will be set by JavaScript */
+      /* height will be set by JavaScript based on orientation */
+      padding: 0 clamp(15px, 3vw, 20px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: var(--text-secondary);
+      background: var(--footer-bg);
+      border-top: 1px solid var(--footer-border);
+      z-index: 50;
+      transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, border-color var(--transition-speed) ease, height var(--transition-speed) ease;
+    }
+    footer p {
+        margin-bottom: 5px;
+        font-size: clamp(0.7rem, 2vw, 0.85rem);
+        line-height: 1.4;
+    }
+    footer p:last-child {
+        margin-bottom: 0;
+    }
+    footer a {
+      color: var(--teal);
+      margin: 0 clamp(4px, 1vw, 8px);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.25s ease-in-out;
+    }
+    footer a:hover {
+      text-decoration: underline;
+      color: var(--teal-dark);
+    }
+
+    /* Modal Styling */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.7);
+      padding-top: clamp(15px, 5vh, 30px);
+      padding-bottom: clamp(15px, 5vh, 30px);
+    }
+    .modal-content {
+      background-color: var(--modal-bg);
+      margin: 5% auto;
+      padding: clamp(18px, 3.5vw, 28px) clamp(22px, 4.5vw, 32px);
+      border: 1px solid var(--teal);
+      width: 90%;
+      max-width: 600px;
+      border-radius: var(--border-radius-main);
+      position: relative;
+      box-shadow: var(--shadow-medium);
+      animation: fadeInModal 0.4s ease-out;
+      transition: background-color var(--transition-speed) ease;
+    }
+    @keyframes fadeInModal {
+      from { opacity: 0; transform: translateY(-30px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .close-button {
+      color: var(--text-secondary);
+      position: absolute;
+      top: clamp(8px, 1.5vw, 10px);
+      right: clamp(12px, 2vw, 15px);
+      font-size: clamp(26px, 4.8vw, 30px);
+      font-weight: bold;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+    .close-button:hover,
+    .close-button:focus {
+      color: var(--teal);
+      text-decoration: none;
+      cursor: pointer;
+      transform: scale(1.1);
+    }
+    #modalImage {
+      width: 100%;
+      max-height: clamp(180px, 38vh, 320px);
+      object-fit: cover;
+      margin-bottom: 20px;
+      border-radius: var(--border-radius-small);
+      border: 2px solid var(--teal-transparent-light);
+    }
+    #modalTitle {
+      color: var(--teal);
+      margin-bottom: 15px;
+      font-family: var(--font-main);
+      font-size: clamp(1.2rem, 3.8vw, 1.7rem);
+      font-weight: 600;
+      text-align: center;
+    }
+    #modalDescriptionContainer {
+        color: var(--text-light);
+        line-height: 1.75;
+        font-size: clamp(0.88rem, 2.4vw, 1.03rem);
+        margin-bottom: 10px;
+        transition: color var(--transition-speed) ease;
+    }
+     #modalDescriptionContainer p:last-child {
+        margin-bottom: 0;
+    }
+    .modal-detail-link-container {
+        margin-top: 20px;
+        text-align: center;
+    }
+    .modal-detail-link {
+      display: inline-block;
+      padding: 8px 18px;
+      background-color: var(--teal);
+      color: var(--navy);
+      border-radius: var(--border-radius-small);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+      transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+    }
+    body.light-mode .modal-detail-link {
+        color: var(--white);
+    }
+    .modal-detail-link:hover {
+      background-color: var(--teal-dark);
+      transform: translateY(-2px);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+        /* Sidebar width is handled by JS for layout calculations now */
+        .sidebar {
+            width: var(--sidebar-width-mobile);
+        }
+        .sidebar-nav-item svg {
+             width: 22px; height: 22px;
+        }
+        .theme-toggle-button svg {
+            width: 20px; height: 20px;
+        }
+        /* section#home.home-active-centered-fixed left/width handled by JS */
+        .profile-section { /* Ensure padding is consistent on mobile */
+             padding: 15px;
+        }
+        .section:not(#home), .section#resume, .section#contact {
+             padding: 30px clamp(10px, 3vw, 15px);
+        }
+        .info-grid, .contact-details-grid {
+            grid-template-columns: 1fr;
+            gap: clamp(15px, 3vw, 20px);
+        }
+        .counters { gap: clamp(10px, 2.5vw, 15px); margin-top: 30px; }
+        #resume .resume-actions .btn {
+            min-width: initial;
+            width: 80%;
+            max-width: 250px;
+        }
+        .modal-content {
+            width: 90%;
+            max-width: 90%; /* Ensure modal doesn't get too wide on slightly larger mobile */
+        }
+        /* Footer left/width handled by JS */
+        footer {
+          padding: 0 clamp(10px, 2.5vw, 15px); /* Adjust padding for mobile */
+        }
+    }
+
+     @media (max-width: 480px) {
+        .hexagon {
+             margin-bottom: 20px;
+        }
+         .profile-section p.bio {
+            font-size: clamp(0.8rem, 2.5vw, 0.95rem);
+            margin-bottom: 30px;
+        }
+        .circular-skill {
+            margin: clamp(4px, 1vw, 6px);
+        }
+        .counters > div {
+            min-width: 90px;
+            flex-basis: 90px;
+            max-width: 120px;
+        }
+        .contact-card {
+            padding: clamp(15px, 2.5vw, 20px);
+        }
+        .contact-card svg {
+            width: clamp(28px, 4.5vw, 35px);
+            height: clamp(28px, 4.5vw, 35px);
+            margin-bottom: 12px;
+        }
+        .contact-card h3 {
+            font-size: clamp(1rem, 2.2vw, 1.2rem);
+        }
+        .contact-card p {
+            font-size: clamp(0.8rem, 2vw, 0.95rem);
+        }
+        .modal-content {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        #modalImage {
+            max-height: clamp(140px, 33vh, 230px);
+        }
+        footer p {
+            line-height: 1.3;
+        }
+        footer a {
+            margin: 0 clamp(3px, 0.8vw, 4px);
+        }
+    }
+
+    /* Landscape orientation adjustments */
+    @media (orientation: landscape) and (max-height: 500px) {
+        /* Footer height, main content padding, and home section height will be adjusted by JS */
+        .profile-section {
+            padding-top: 10px; padding-bottom: 10px;
+        }
+        h1 { font-size: clamp(1.7rem, 3.8vh, 2.4rem); }
+        .typed-text-container { font-size: clamp(0.85rem, 2.3vh, 1.15rem); min-height: 1.8em; }
+        .hexagon {
+            width: clamp(90px, 23vh, 140px);
+            height: calc(clamp(90px, 23vh, 140px) * 1.1526);
+            margin-bottom: 15px;
+        }
+        .profile-section p.bio { font-size: clamp(0.78rem, 2vh, 0.9rem); margin-bottom: 15px; margin-top: 10px; }
+        .counters > div { padding: clamp(8px, 2vh, 12px) clamp(10px, 2.5vh, 18px); }
+        .counters .counter { font-size: clamp(1.2rem, 3.3vh, 1.7rem); }
+        .counters div > span:not(.counter) { font-size: clamp(0.65rem, 1.7vh, 0.75rem); }
+        .section-title { font-size: clamp(1.4rem, 3.3vh, 1.9rem); margin-bottom: 20px; }
+        .circular-skill { width: clamp(65px, 14vh, 95px); height: clamp(65px, 14vh, 95px); }
+        .circular-skill::after { font-size: clamp(0.55rem, 1.5vh, 0.75rem); }
+        .contact-details-grid { gap: clamp(15px, 2.5vh, 20px); }
+        .contact-card { padding: clamp(15px, 2.5vh, 20px); }
+        .contact-card svg { width: clamp(28px, 4vh, 32px); height: clamp(28px, 4vh, 32px); }
+
+        .section:not(#home), .section#resume, .section#contact {
+            padding-top: 20px; padding-bottom: 30px;
+        }
+    }
+  </style>
 </head>
+
 <body>
+  <div id="particles-js-loader">Loading Background...</div>
   <div id="particles-js"></div>
 
-  <div class="container">
-    <div class="profile-hexagon">
-      <img src="images/profile.jpg" alt="Prachi Jain" />
+  <div class="portfolio-container">
+    <nav class="sidebar">
+      <div class="sidebar-nav-item active" onclick="setSection('home')" title="Home">
+        <svg data-lucide="home"><use xlink:href="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/home.svg#home"/></svg>
+      </div>
+      <div class="sidebar-nav-item" onclick="setSection('skills')" title="Skills">
+        <svg data-lucide="brain"><use xlink:href="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/brain.svg#brain"/></svg>
+      </div>
+      <div class="sidebar-nav-item" onclick="setSection('projects')" title="Projects">
+        <svg data-lucide="bar-chart-big"><use xlink:href="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/bar-chart-big.svg#bar-chart-big"/></svg>
+      </div>
+      <div class="sidebar-nav-item" onclick="setSection('academics')" title="Academics">
+        <svg data-lucide="graduation-cap"><use xlink:href="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/graduation-cap.svg#graduation-cap"/></svg>
+      </div>
+      <div class="sidebar-nav-item" onclick="setSection('certificates')" title="Certificates">
+        <svg data-lucide="award"><use xlink:href="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/award.svg#award"/></svg>
+      </div>
+      <div class="sidebar-nav-item" onclick="setSection('resume')" title="Resume">
+        <svg data-lucide="file-text"><use xlink:href="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/file-text.svg#file-text"/></svg>
+      </div>
+      <div class="sidebar-nav-item" onclick="setSection('contact')" title="Contact">
+        <svg data-lucide="mail"><use xlink:href="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/mail.svg#mail"/></svg>
+      </div>
+      <button class="theme-toggle-button" id="themeToggle" title="Toggle Theme">
+        <svg id="theme-icon-moon" data-lucide="moon"><use xlink:href="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/moon.svg#moon"/></svg>
+        <svg id="theme-icon-sun" data-lucide="sun" style="display:none;"><use xlink:href="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/sun.svg#sun"/></svg>
+      </button>
+    </nav>
+
+    <main class="main-content-area">
+      <section id="home" class="section active">
+          <div class="profile-section">
+            <div class="hexagon">
+              <img src="https://placehold.co/180x180/ffffff/00c6d9?text=Girl&font=lora" alt="Prachi Jain Profile Picture" onerror="this.src='https://placehold.co/180x180/172a45/FFFFFF?text=Image+Error&font=poppins'"/>
+            </div>
+            <h1>Prachi Jain</h1>
+            <div class="typed-text-container"><span id="typed-text-output"></span></div>
+            <p class="bio">
+              A highly motivated and detail-oriented Data Analyst with a passion for uncovering insights from complex datasets. Experienced in data visualization, statistical analysis, and building predictive models.
+            </p>
+            <div class="counters" style="margin-top: 30px;">
+                <div><span class="counter" data-target="6">0</span><span>Projects Completed</span></div>
+                <div><span class="counter" data-target="3">0</span><span>Years Experience</span></div>
+                <div><span class="counter" data-target="6">0</span><span>Key Skills</span></div>
+            </div>
+        </div>
+      </section>
+
+      <section id="skills" class="section">
+        <div class="section-title">Core Competencies</div>
+        <div class="skills-container">
+          <div class="circular-skill" style="--p:90;" data-label="Python 9/10"></div>
+          <div class="circular-skill" style="--p:85;" data-label="SQL 8.5/10"></div>
+          <div class="circular-skill" style="--p:80;" data-label="Power BI 8/10"></div>
+          <div class="circular-skill" style="--p:75;" data-label="Statistics 7.5/10"></div>
+          <div class="circular-skill" style="--p:80;" data-label="Tableau 8/10"></div>
+          <div class="circular-skill" style="--p:70;" data-label="Excel (Adv) 7/10"></div>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="section-title">Project Showcase</div>
+        <div class="info-grid">
+          <div class="info-card" onclick="showDetailsModal(
+            'Customer Segmentation Analysis',
+            'This project involved analyzing customer data to identify distinct groups for targeted marketing. We used RFM (Recency, Frequency, Monetary) analysis and clustering algorithms like K-Means. Key tasks included data cleaning, feature engineering, model training, and visualizing segments using Python (Pandas, Scikit-learn, Matplotlib, Seaborn) and Tableau. The outcomes helped the marketing team to tailor campaigns, improving engagement by 15% and conversion rates by 10%.',
+            'https://placehold.co/600x400/172a45/00c6d9?text=Customer+Segmentation+Project&font=poppins',
+            '#your-project-link-1'
+          )">
+            <h3>Customer Segmentation Analysis</h3>
+            <p>Performed RFM analysis for personalized marketing campaigns using Python (Pandas, Matplotlib) and Tableau. Delivered actionable customer segments to improve targeting.</p>
+          </div>
+          <div class="info-card" onclick="showDetailsModal(
+            'Sales Performance Dashboard',
+            'The goal of this project was to create a dynamic and interactive dashboard to monitor key sales performance indicators (KPIs). We connected to a SQL database, transformed data using Power Query, and built visualizations in Power BI. The dashboard included metrics like sales trends, regional performance, product-wise sales, and sales team achievements. This provided real-time insights, enabling sales managers to make data-driven decisions and identify areas for improvement quickly.',
+            'https://placehold.co/600x400/172a45/00c6d9?text=Sales+Dashboard+Project&font=poppins',
+            '#your-project-link-2'
+          )">
+            <h3>Sales Performance Dashboard</h3>
+            <p>Designed and implemented an interactive KPI tracking dashboard using Power BI with a SQL backend, enabling real-time sales monitoring and decision-making.</p>
+          </div>
+           <div class="info-card" onclick="showDetailsModal(
+            'Predictive Maintenance Model',
+            'Developed a machine learning model to predict equipment failure in a manufacturing plant. This involved analyzing historical sensor data (temperature, vibration, pressure) and maintenance logs. We used Python with libraries like Scikit-learn and TensorFlow/Keras for model development (e.g., Logistic Regression, Random Forest, LSTM). The model successfully predicted X% of failures in advance, leading to a significant reduction in unplanned downtime and maintenance costs.',
+            'https://placehold.co/600x400/172a45/00c6d9?text=Predictive+Maintenance+Project&font=poppins',
+            '#your-project-link-3'
+          )">
+            <h3>Predictive Maintenance Model</h3>
+            <p>Developed a machine learning model to predict equipment failure, reducing downtime by X%. Utilized Python (Scikit-learn) and historical sensor data.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="academics" class="section">
+        <div class="section-title">Academic Background</div>
+        <div class="info-grid">
+          <div class="info-card">
+            <h3>Master of Science in Data Analytics</h3>
+            <p>University of Advanced Data Studies (Graduated: 2022)</p>
+            <p style="font-size:0.9em; color:var(--text-secondary); margin-top:8px;">Specialization: Big Data Technologies, Machine Learning.</p>
+          </div>
+          <div class="info-card">
+            <h3>Bachelor of Technology in Computer Science</h3>
+            <p>National Institute of Technology (Graduated: 2020)</p>
+             <p style="font-size:0.9em; color:var(--text-secondary); margin-top:8px;">Focus: Algorithms, Database Systems.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="certificates" class="section">
+        <div class="section-title">Professional Certifications</div>
+        <div class="info-grid">
+          <div class="info-card" onclick="showDetailsModal(
+            'Google Data Analytics Professional Certificate',
+            'This comprehensive certificate program by Google on Coursera covers the entire data analysis lifecycle. Key skills learned include data collection, cleaning, processing, analysis, visualization (Tableau, Google Sheets), and interpretation using tools like SQL, R, and Python. It emphasizes practical skills through hands-on projects and case studies.',
+            'https://placehold.co/600x400/172a45/00c6d9?text=Google+Certificate&font=poppins',
+            '#your-certificate-link-1'
+          )">
+            <h3>Google Data Analytics Professional Certificate</h3>
+            <p>Issued by: Google (Coursera)</p>
+          </div>
+          <div class="info-card" onclick="showDetailsModal(
+            'Microsoft Certified: Data Analyst Associate',
+            'This certification (PL-300) validates the skills required to design and build scalable data models, clean and transform data, and enable advanced analytic capabilities that provide meaningful business value using Microsoft Power BI. It focuses on preparing data, modeling data, visualizing data, analyzing data, and deploying and maintaining deliverables.',
+            'https://placehold.co/600x400/172a45/00c6d9?text=Microsoft+Certificate&font=poppins',
+            '#your-certificate-link-2'
+          )">
+            <h3>Microsoft Certified: Data Analyst Associate</h3>
+            <p>Issued by: Microsoft</p>
+          </div>
+          <div class="info-card" onclick="showDetailsModal(
+            'IBM Data Science Professional Certificate',
+            'An in-depth program by IBM on Coursera that covers a wide range of data science topics, including data analysis, machine learning, data visualization, and open source tools like Python, R, SQL, Jupyter Notebooks, and IBM Watson Studio. It includes numerous hands-on labs and a capstone project to apply learned skills.',
+            'https://placehold.co/600x400/172a45/00c6d9?text=IBM+Certificate&font=poppins',
+            '#your-certificate-link-3'
+          )">
+            <h3>IBM Data Science Professional Certificate</h3>
+            <p>Issued by: IBM (Coursera)</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="resume" class="section">
+        <div class="section-title">My Resume</div>
+        <div class="resume-actions">
+          <p style="color: var(--text-secondary); margin-bottom: 20px; max-width: 600px; width: 90%; margin-left:auto; margin-right:auto;">
+            Access my professional background, detailed experiences, and qualifications.
+          </p>
+          <a href="Prachi_Jain_Resume_Placeholder.pdf" target="_blank" class="btn btn-view">
+            <svg data-lucide="eye" class="icon"><use xlink:href="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/eye.svg#eye"/></svg>
+            View Resume
+          </a>
+          <a href="Prachi_Jain_Resume_Placeholder.pdf" download="Prachi_Jain_Resume.pdf" class="btn btn-download">
+            <svg data-lucide="download-cloud" class="icon"><use xlink:href="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/download-cloud.svg#download-cloud"/></svg>
+            Download Resume
+          </a>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="section-title">Get In Touch</div>
+        <div class="contact-details-grid">
+          <div class="contact-card">
+            <svg data-lucide="phone-call"><use xlink:href="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/phone-call.svg#phone-call"/></svg>
+            <h3>Phone</h3>
+            <p><a href="tel:+910000000000">+91 00000 00000</a></p>
+          </div>
+          <div class="contact-card">
+            <svg data-lucide="mail-open"><use xlink:href="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/mail-open.svg#mail-open"/></svg>
+            <h3>Email</h3>
+            <p><a href="mailto:prachi.jain@example.com">prachi.jain@example.com</a></p>
+          </div>
+          <div class="contact-card">
+            <svg data-lucide="linkedin"><use xlink:href="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/linkedin.svg#linkedin"/></svg>
+            <h3>LinkedIn</h3>
+            <p><a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">linkedin.com/in/yourprofile</a></p>
+          </div>
+          <div class="contact-card">
+            <svg data-lucide="github"><use xlink:href="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/github.svg#github"/></svg>
+            <h3>GitHub</h3>
+            <p><a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer">github.com/yourprofile</a></p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+  <footer>
+    <p>&copy; <span id="currentYear"></span> Prachi Jain. All Rights Reserved.</p>
+    <p>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
+        <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer">GitHub</a> |
+        <a href="mailto:your.email@example.com">Email</a>
+    </p>
+  </footer>
+
+  <div id="detailModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button" onclick="closeDetailsModal()">&times;</span>
+      <img id="modalImage" src="" alt="Detail Image" loading="lazy" onerror="this.src='https://placehold.co/600x400/172a45/FFFFFF?text=Image+Not+Found&font=poppins'">
+      <h3 id="modalTitle"></h3>
+      <div id="modalDescriptionContainer">
+        </div>
+      <div id="modalDetailLinkContainer" class="modal-detail-link-container" style="display: none;">
+           <a href="#" id="modalDetailLink" target="_blank" rel="noopener noreferrer" class="modal-detail-link">View Full Details</a>
+      </div>
     </div>
-
-    <h1 class="main-heading">Prachi Jain</h1>
-    <p class="subtitle">Data Analyst | Banking | AI Enthusiast</p>
-
-    <div class="navigation-circle">
-      <div class="nav-item" onclick="showSection('skills')">Skills</div>
-      <div class="nav-item" onclick="showSection('projects')">Projects</div>
-      <div class="nav-item" onclick="showSection('certificates')">Certificates</div>
-      <div class="nav-item" onclick="showSection('academics')">Academics</div>
-      <div class="nav-item" onclick="showSection('resume')">Resume</div>
-      <div class="nav-item" onclick="showSection('contact')">Contact</div>
-    </div>
   </div>
 
-  <div class="popup" id="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>Python, SQL, SAS</li>
-      <li>Power BI, Tableau</li>
-      <li>Machine Learning, PyCaret</li>
-      <li>Automation, Streamlit</li>
-    </ul>
-    <button onclick="closePopup('skills')">Close</button>
-  </div>
+  <script>
+    // DOM Elements
+    const particlesLoader = document.getElementById('particles-js-loader');
+    const mainContentArea = document.querySelector('.main-content-area');
+    const footerElement = document.querySelector('footer');
+    const sidebarElement = document.querySelector('.sidebar');
+    const homeSectionElement = document.getElementById('home');
 
-  <div class="popup" id="projects">
-    <h2>Projects</h2>
-    <p>Transactor to Revolver Model<br/>Revolver at Risk Model<br/>Spend-Based Targeting Dashboard</p>
-    <button onclick="closePopup('projects')">Close</button>
-  </div>
+    // CSS Variable Values (from :root)
+    const CSS_SIDEBAR_WIDTH_VAL = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--sidebar-width-val'));
+    const CSS_SIDEBAR_WIDTH_MOBILE_VAL = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--sidebar-width-mobile-val'));
+    const CSS_FOOTER_HEIGHT_VAL = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--footer-height-val'));
+    const CSS_FOOTER_HEIGHT_LANDSCAPE_VAL = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--footer-height-landscape-val'));
 
-  <div class="popup" id="certificates">
-    <h2>Certificates</h2>
-    <ul>
-      <li>Google Data Analytics</li>
-      <li>Power BI Advanced</li>
-    </ul>
-    <button onclick="closePopup('certificates')">Close</button>
-  </div>
 
-  <div class="popup" id="academics">
-    <h2>Academics</h2>
-    <p>B.E. in Computer Science - 2020</p>
-    <button onclick="closePopup('academics')">Close</button>
-  </div>
+    function initializeLucide() {
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        } else {
+            console.warn("Lucide icons not available. Retrying...");
+            setTimeout(() => {
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+                else console.error("Lucide still not available.");
+            }, 500);
+        }
+    }
 
-  <div class="popup" id="resume">
-    <h2>Download Resume</h2>
-    <a href="Prachi_Resume.pdf" download>📄 Click to Download</a>
-    <button onclick="closePopup('resume')">Close</button>
-  </div>
+    function initParticles() {
+        if (typeof particlesJS !== 'undefined') {
+            try {
+                particlesJS("particles-js", {
+                    particles: {
+                        number: { value: 30, density: { enable: true, value_area: 900 } },
+                        color: { value: "#00ced1" }, shape: { type: "circle" },
+                        opacity: { value: 0.2, random: true, anim: { enable: true, speed: 0.25, opacity_min: 0.03, sync: false } },
+                        size: { value: 2.5, random: true, anim: { enable: false } },
+                        line_linked: { enable: true, distance: 180, color: "#00ffff", opacity: 0.12, width: 1 },
+                        move: { enable: true, speed: 1.2, direction: "none", random: true, straight: false, out_mode: "out", bounce: false, attract: { enable: false } }
+                    },
+                    interactivity: {
+                        detect_on: "canvas",
+                        events: { onhover: { enable: true, mode: "grab" }, onclick: { enable: false }, resize: true },
+                        modes: { grab: { distance: 170, line_linked: { opacity: 0.25 } } }
+                    },
+                    retina_detect: true
+                }, () => {
+                    console.log('particles.js initialized, hiding loader.');
+                    if (particlesLoader) particlesLoader.classList.add('loaded');
+                });
+            } catch (error) {
+                console.error('Error initializing particles.js:', error);
+                if (particlesLoader) particlesLoader.classList.add('loaded');
+            }
+        } else {
+            console.warn("particles.js library not loaded. Hiding loader.");
+            if (particlesLoader) particlesLoader.classList.add('loaded');
+        }
+    }
 
-  <div class="popup" id="contact">
-    <h2>Contact Me</h2>
-    <p>Email: prachi.jain@example.com</p>
-    <p>GitHub: <a href="https://github.com/Mnt223" target="_blank">Mnt223</a></p>
-    <button onclick="closePopup('contact')">Close</button>
-  </div>
+    function initTypedJS() {
+        if (typeof Typed !== 'undefined') {
+            new Typed("#typed-text-output", {
+                strings: ["Data Analyst", "ML Enthusiast", "Power BI Specialist", "Data Storyteller"],
+                typeSpeed: 65, backSpeed: 35, loop: true, backDelay: 1600, smartBackspace: true, showCursor: true, cursorChar: "|"
+            });
+        } else {
+            console.warn("Typed.js not loaded");
+            const typedOutputEl = document.getElementById("typed-text-output");
+            if (typedOutputEl) typedOutputEl.textContent = "Data Analyst";
+        }
+    }
+
+    function updateLayout() {
+        if (!footerElement || !mainContentArea || !sidebarElement) {
+            console.error("Required layout elements not found for updateLayout.");
+            return;
+        }
+
+        const viewportWidth = window.innerWidth;
+        const isMobile = viewportWidth <= 768;
+        const isLandscapeMobile = window.matchMedia("(orientation: landscape) and (max-height: 500px)").matches;
+
+        let currentSidebarWidth = isMobile ? CSS_SIDEBAR_WIDTH_MOBILE_VAL : CSS_SIDEBAR_WIDTH_VAL;
+        let currentFooterHeight = isLandscapeMobile ? CSS_FOOTER_HEIGHT_LANDSCAPE_VAL : CSS_FOOTER_HEIGHT_VAL;
+
+        // Update sidebar style directly (if it changes based on JS logic, though CSS handles it now)
+        sidebarElement.style.width = currentSidebarWidth + 'px';
+
+        // Update main content area
+        mainContentArea.style.marginLeft = currentSidebarWidth + 'px';
+        mainContentArea.style.paddingBottom = currentFooterHeight + 'px';
+
+        // Update footer
+        footerElement.style.left = currentSidebarWidth + 'px';
+        footerElement.style.width = (viewportWidth - currentSidebarWidth) + 'px';
+        footerElement.style.height = currentFooterHeight + 'px';
+
+        // Update active home section if it's the one with special fixed layout
+        if (homeSectionElement && homeSectionElement.classList.contains('home-active-centered-fixed')) {
+            homeSectionElement.style.left = currentSidebarWidth + 'px';
+            homeSectionElement.style.width = (viewportWidth - currentSidebarWidth) + 'px';
+            homeSectionElement.style.height = (window.innerHeight - currentFooterHeight) + 'px';
+        }
+    }
+
+
+    function setSection(id) {
+      if (!mainContentArea) {
+          console.error("Main content area not found for setSection.");
+          return;
+      }
+      mainContentArea.scrollTop = 0;
+
+      document.querySelectorAll('.section').forEach(section => {
+        section.style.display = 'none';
+        section.classList.remove('active', 'home-active-centered-fixed');
+      });
+
+      const targetSection = document.getElementById(id);
+      if (targetSection) {
+        if (id === 'home') {
+          targetSection.classList.add('home-active-centered-fixed');
+          targetSection.style.display = 'flex';
+        } else {
+          targetSection.style.display = 'block';
+        }
+        // Update layout immediately after changing home section structure
+        updateLayout(); // Crucial for home-active-centered-fixed
+
+        requestAnimationFrame(() => {
+            setTimeout(() => targetSection.classList.add('active'), 10); // For animation
+        });
+      } else {
+          console.warn(`Section with id '${id}' not found.`);
+      }
+
+      document.querySelectorAll('.sidebar-nav-item').forEach(item => item.classList.remove('active'));
+      const activeNavItem = Array.from(document.querySelectorAll('.sidebar-nav-item')).find(item => item.getAttribute('onclick') === `setSection('${id}')`);
+      if (activeNavItem) activeNavItem.classList.add('active');
+    }
+
+    function animateCounters() {
+        document.querySelectorAll('.counter').forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            if (isNaN(target)) return;
+            let startTime = null;
+            const duration = 1800;
+            const step = (timestamp) => {
+                if (!startTime) startTime = timestamp;
+                const progress = Math.min((timestamp - startTime) / duration, 1);
+                counter.innerText = Math.floor(progress * target);
+                if (progress < 1) window.requestAnimationFrame(step);
+                else counter.innerText = target;
+            };
+            counter.innerText = '0';
+            window.requestAnimationFrame(step);
+        });
+    }
+
+    const modal = document.getElementById('detailModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescriptionContainer = document.getElementById('modalDescriptionContainer');
+    const modalDetailLinkContainer = document.getElementById('modalDetailLinkContainer');
+    const modalDetailLink = document.getElementById('modalDetailLink');
+
+    function showDetailsModal(title, descriptionHTML, imageUrl, detailLinkUrl) {
+      if (!modal || !modalImage || !modalTitle || !modalDescriptionContainer || !modalDetailLinkContainer || !modalDetailLink) {
+          console.error("Modal elements not found.");
+          return;
+      }
+      modalTitle.textContent = title;
+      modalDescriptionContainer.innerHTML = descriptionHTML;
+      modalImage.src = imageUrl;
+      modalImage.alt = title + " Image";
+      modalImage.onerror = function() {
+          this.onerror=null;
+          this.src='https://placehold.co/600x400/172a45/FFFFFF?text=Image+Not+Found&font=poppins';
+      };
+      if (detailLinkUrl && detailLinkUrl !== '#') {
+        modalDetailLink.href = detailLinkUrl;
+        modalDetailLinkContainer.style.display = 'block';
+      } else {
+        modalDetailLinkContainer.style.display = 'none';
+      }
+      modal.style.display = "block";
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDetailsModal() {
+      if (!modal) return;
+      modal.style.display = "none";
+      document.body.style.overflow = 'auto';
+    }
+    window.onclick = (event) => { if (event.target == modal) closeDetailsModal(); };
+
+    const themeToggleButton = document.getElementById('themeToggle');
+    const moonIcon = document.getElementById('theme-icon-moon');
+    const sunIcon = document.getElementById('theme-icon-sun');
+
+    function setInitialTheme() {
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.body.classList.remove('light-mode', 'dark-mode');
+        document.body.classList.add(savedTheme === 'light' ? 'light-mode' : 'dark-mode');
+        if (moonIcon && sunIcon) {
+            moonIcon.style.display = savedTheme === 'light' ? 'none' : 'block';
+            sunIcon.style.display = savedTheme === 'light' ? 'block' : 'none';
+        }
+    }
+
+    if (themeToggleButton) {
+        themeToggleButton.addEventListener('click', () => {
+            const isLight = document.body.classList.toggle('light-mode');
+            document.body.classList.toggle('dark-mode', !isLight);
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            if (moonIcon && sunIcon) {
+                moonIcon.style.display = isLight ? 'none' : 'block';
+                sunIcon.style.display = isLight ? 'block' : 'none';
+            }
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      setInitialTheme();
+      initializeLucide();
+      initParticles();
+      initTypedJS();
+      updateLayout(); // Initial layout setup
+      setSection('home'); // Set initial section, which also calls updateLayout
+      animateCounters();
+
+      const currentYearEl = document.getElementById('currentYear');
+      if (currentYearEl) currentYearEl.textContent = new Date().getFullYear();
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === "Escape" && modal && modal.style.display === "block") {
+          closeDetailsModal();
+        }
+      });
+
+      if (particlesLoader) {
+          setTimeout(() => {
+              if (!particlesLoader.classList.contains('loaded')) {
+                  console.warn('Failsafe: Hiding particles loader via timeout.');
+                  particlesLoader.classList.add('loaded');
+              }
+          }, 2500); // Slightly increased timeout
+      }
+
+      window.addEventListener('resize', updateLayout);
+      window.addEventListener('orientationchange', updateLayout);
+    });
+  </script>
 </body>
 </html>
