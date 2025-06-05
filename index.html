@@ -3,47 +3,76 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prachi Jain - Data Analyst Portfolio</title>
+  <title>Prachi Jain - Data Analyst</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="script.js" defer></script>
 </head>
-<body class="dark-mode">
-  <div class="portfolio-container">
-    <nav class="sidebar">
-      <div class="sidebar-nav-item active" onclick="setSection('home')" title="Home">🏠</div>
-      <div class="sidebar-nav-item" onclick="setSection('skills')" title="Skills">🧠</div>
-      <div class="sidebar-nav-item" onclick="setSection('projects')" title="Projects">📊</div>
-      <div class="sidebar-nav-item" onclick="setSection('contact')" title="Contact">📬</div>
-    </nav>
+<body>
+  <div id="particles-js"></div>
 
-    <main class="main-content-area">
-      <section id="home" class="section active">
-        <h1>Prachi Jain</h1>
-        <p class="bio">A highly motivated and detail-oriented Data Analyst with a passion for uncovering insights from complex datasets.</p>
-      </section>
+  <div class="container">
+    <div class="profile-hexagon">
+      <img src="images/profile.jpg" alt="Prachi Jain" />
+    </div>
 
-      <section id="skills" class="section">
-        <h2 class="section-title">Skills</h2>
-        <ul>
-          <li>Python, SQL, Power BI</li>
-          <li>Data Visualization</li>
-          <li>Machine Learning</li>
-        </ul>
-      </section>
+    <h1 class="main-heading">Prachi Jain</h1>
+    <p class="subtitle">Data Analyst | Banking | AI Enthusiast</p>
 
-      <section id="projects" class="section">
-        <h2 class="section-title">Projects</h2>
-        <p>Project 1: Customer Segmentation using RFM</p>
-        <p>Project 2: Power BI Sales Dashboard</p>
-      </section>
+    <div class="navigation-circle">
+      <div class="nav-item" onclick="showSection('skills')">Skills</div>
+      <div class="nav-item" onclick="showSection('projects')">Projects</div>
+      <div class="nav-item" onclick="showSection('certificates')">Certificates</div>
+      <div class="nav-item" onclick="showSection('academics')">Academics</div>
+      <div class="nav-item" onclick="showSection('resume')">Resume</div>
+      <div class="nav-item" onclick="showSection('contact')">Contact</div>
+    </div>
+  </div>
 
-      <section id="contact" class="section">
-        <h2 class="section-title">Contact</h2>
-        <p>Email: <a href="mailto:prachi.jain@example.com">prachi.jain@example.com</a></p>
-        <p>GitHub: <a href="https://github.com/Mnt223" target="_blank">github.com/Mnt223</a></p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
-      </section>
-    </main>
+  <div class="popup" id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>Python, SQL, SAS</li>
+      <li>Power BI, Tableau</li>
+      <li>Machine Learning, PyCaret</li>
+      <li>Automation, Streamlit</li>
+    </ul>
+    <button onclick="closePopup('skills')">Close</button>
+  </div>
+
+  <div class="popup" id="projects">
+    <h2>Projects</h2>
+    <p>Transactor to Revolver Model<br/>Revolver at Risk Model<br/>Spend-Based Targeting Dashboard</p>
+    <button onclick="closePopup('projects')">Close</button>
+  </div>
+
+  <div class="popup" id="certificates">
+    <h2>Certificates</h2>
+    <ul>
+      <li>Google Data Analytics</li>
+      <li>Power BI Advanced</li>
+    </ul>
+    <button onclick="closePopup('certificates')">Close</button>
+  </div>
+
+  <div class="popup" id="academics">
+    <h2>Academics</h2>
+    <p>B.E. in Computer Science - 2020</p>
+    <button onclick="closePopup('academics')">Close</button>
+  </div>
+
+  <div class="popup" id="resume">
+    <h2>Download Resume</h2>
+    <a href="Prachi_Resume.pdf" download>📄 Click to Download</a>
+    <button onclick="closePopup('resume')">Close</button>
+  </div>
+
+  <div class="popup" id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: prachi.jain@example.com</p>
+    <p>GitHub: <a href="https://github.com/Mnt223" target="_blank">Mnt223</a></p>
+    <button onclick="closePopup('contact')">Close</button>
   </div>
 </body>
 </html>
