@@ -1,15 +1,12 @@
-
-function setSection(id) {
-  document.querySelectorAll('.section').forEach(section => {
-    section.classList.remove('active');
-  });
-  const target = document.getElementById(id);
-  if (target) target.classList.add('active');
-
-  document.querySelectorAll('.sidebar-nav-item').forEach(item => {
-    item.classList.remove('active');
-  });
-  const navItems = Array.from(document.querySelectorAll('.sidebar-nav-item'));
-  const match = navItems.find(item => item.getAttribute('onclick') === `setSection('${id}')`);
-  if (match) match.classList.add('active');
+function showSection(id) {
+  document.querySelectorAll('.popup').forEach(p => p.style.display = 'none');
+  document.getElementById(id).style.display = 'block';
 }
+
+function closePopup(id) {
+  document.getElementById(id).style.display = 'none';
+}
+
+particlesJS.load('particles-js', 'particles.json', function () {
+  console.log('Particles loaded.');
+});
